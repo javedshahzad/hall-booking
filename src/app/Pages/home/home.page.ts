@@ -11,13 +11,7 @@ import { Router } from '@angular/router';
 export class HomePage {
   public logged: boolean = false;
   constructor(public FBAuth: AngularFireAuth, public router: Router) {
-  }
-  
-  
-  logout() {
-     this.FBAuth.signOut();
-  }
-  
 
+  }
   
   }
