@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <h2>Please fill all details</h2>
+    <ion-item>
+      <ion-input label="Name" labelPlacement="floating" placeholder="Enter name" type="text" [(ngModel)]="userData.name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Email" labelPlacement="floating" placeholder="Enter email" type="email" [(ngModel)]="userData.email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-select label="Type" placeholder="Select your type" [(ngModel)]="userData.type">
+        <ion-select-option *ngFor="let type of restSr.UserTypes" [value]="type.typeId">{{type.type}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Password" labelPlacement="floating" placeholder="Password" type="password" [(ngModel)]="userData.password"></ion-input>
+    </ion-item>
+    <ion-button expand="block" color="secondary" (click)="register()"> Registrer</ion-button>
+  </ion-list>
+</ion-content>

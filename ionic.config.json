@@ -1,0 +1,7 @@
+{
+  "name": "hall-bookings",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

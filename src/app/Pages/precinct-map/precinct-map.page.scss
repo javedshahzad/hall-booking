@@ -1,0 +1,40 @@
+
+ion-header {
+    ion-toolbar {
+       ion-title {
+         text-align: center;
+         font-size: 24px;
+         color: #000;
+       }
+    }
+   
+    ion-buttons {
+       ion-menu-button {
+         ion-icon {
+           color: #000;
+         }
+       }
+    }
+   }
+   
+   // Content
+   ion-content {
+    .title {
+       font-size: 24px;
+       text-align: center;
+       margin-bottom: 20px;
+    }
+   
+    img {
+       width: 100%;
+       height: auto;
+    }
+   
+    ion-row {
+       justify-content: center;
+    }
+   
+    ion-button {
+       margin-top: 20px;
+    }
+   }
