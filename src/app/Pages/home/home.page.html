@@ -28,26 +28,40 @@
   <p>Exhibition World Bahrain is proudly managed by ASM Global, the world's leading venue and event strategy management company, connecting people through the power of live experience.</p>
  </div>
  
-
- <ion-grid [fixed]="true">
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <ion-searchbar show-cancel-button="focus" placeholder="Search hall by Name" (ionInput)="SearchHall($event)"></ion-searchbar>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+ <ion-grid>
    <ion-row>
-     <ion-col>
+     <!-- <ion-col>
        <ion-card>
          <img src="../../assets/pic8.png">
          <div class="card-title">Floor Exhibition Space</div>
          <div class="card-subtitle">95,000 sqm</div>
        </ion-card>
-     </ion-col>
+     </ion-col> -->
      
-     <ion-col>
+     <ion-col size="6" *ngFor="let item of AllHallList">
        <ion-card>
          <img src="../../assets/pic1.png">
-         <div class="card-title">Grand Hall City Space</div>
-         <div class="card-subtitle">4,000</div>
+         <ion-card-content>
+          <div class="card-title">Name: {{item.hallName}}</div>
+          <div class="card-subtitle">Capacity: {{item.hallCapacity}}</div>
+          <div class="card-subtitle">Hall Number: {{item.hallNumber}}</div>
+          <div class="card-subtitle">Both: {{item.hallSittingBoth}}</div>
+          <div class="card-subtitle">Development Team: {{item.hallDevelopmentTeam}}</div>
+          <div class="card-subtitle">Availability: {{item.hallAvailableFrom}} To {{item.hallAvailableTo}}</div>
+          <div class="card-subtitle" style="background-color: gray;">Hall Status: {{item.hallStatus}}</div>
+          <ion-button expand="block" (click)="viewHall(item)">View Hall</ion-button>
+        </ion-card-content>
        </ion-card>
      </ion-col>
      
-     <ion-col>
+     <!-- <ion-col>
        <ion-card>
          <img src="../../assets/pic3.png">
          <div class="card-title">Meeting Rooms</div>
@@ -105,7 +119,7 @@
          <div class="card-title">Majlis</div>
          <div class="card-subtitle">3</div>
        </ion-card>
-     </ion-col>
+     </ion-col> -->
    </ion-row>
  </ion-grid>
 

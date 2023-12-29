@@ -21,7 +21,18 @@ export class RestApiService {
       type:"Guest",
       typeId:3,
     }
+  ];
+  public HallStatus= [
+    {
+      type:"Available",
+      typeId:1,
+    },
+    {
+      type:"Reserved",
+      typeId:2,
+    }
   ]
+  user: any;
   constructor( private afAuth:AngularFireAuth,
      private angularFireStore:AngularFirestore,
      private loadingCtrl: LoadingController,
@@ -52,14 +63,37 @@ export class RestApiService {
       return new Promise((resolve,reject) => {
         this.afAuth.user.subscribe(userid => {
           if(!userid) { 
+            //this.logOut();
+            return reject(false) 
+          }
+          const userdoc: AngularFirestoreDocument<any> = this.angularFireStore.doc(`/users/${userid.uid}`);
+           userdoc.valueChanges().subscribe((user:any) => {
+            console.log(user)
+            localStorage.setItem("userData",JSON.stringify(user));
+            this.text = 'Hey, '+user['name'];
+            return resolve(user);
+           });
+        });
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  public IsLoggedInUser() {
+    try {
+      return new Promise((resolve,reject) => {
+        this.afAuth.user.subscribe(userid => {
+          if(!userid) { 
             this.logOut();
             return reject(false) 
           }
           const userdoc: AngularFirestoreDocument<any> = this.angularFireStore.doc(`/users/${userid.uid}`);
            userdoc.valueChanges().subscribe((user:any) => {
             console.log(user)
-            localStorage.setItem("userData",user);
+            this.user = user;
+            localStorage.setItem("userData",JSON.stringify(user));
             this.text = 'Hey, '+user['name'];
+
             return resolve(user);
            });
         });
@@ -88,7 +122,7 @@ showLoader() {
     this.loadingCtrl.create({
         message: 'Pleas wait...',
         spinner: "lines-sharp",
-        duration: 5000,
+        duration: 10000,
         mode: "ios",
         animated:true,
     }).then((res) => {

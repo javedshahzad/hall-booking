@@ -27,43 +27,25 @@ ion-header {
  ion-content {
   --background: #f0f0f0;
  
-  div {
-     padding: 50px 0;
-     font-size: 24px;
-     color: #333333;
-  }
-}
-.card-background-page {
-
-  ion-card {
-    position: relative;
-    text-align: center;
-    display: inline-block;
-  }
-
-  .card-title {
-    position: absolute;
-    top: 36%;
-    font-size: 2.0em;
-    width: 100%;
-    font-weight:bold;
-    color: rgb(240, 12, 12);
-  }
-
-  .card-subtitle {
-    font-weight: bolder;
-    font-size: 1.75em;
-    position: absolute;
-    top: 52%;
-    width: 100%;
-    color: plum;
-  }
-
-  p{
-    text-align: center;
-    color: maroon;
-  }
 
 }
+
+
+.card-title {
+  font-size: 1.2em;
+  font-weight:bold;
+  color: rgb(240, 12, 12);
+}
+
+.card-subtitle {
+  font-weight: bolder;
+  font-size: 1em;
+  color: plum;
+}
+
+// p{
+//   text-align: center;
+//   color: maroon;
+// }
 
 

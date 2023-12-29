@@ -16,12 +16,21 @@ export class LoginPage implements OnInit {
   login(){
     if(this.userData.email && this.userData.password){
       this.restSr.showLoader();
-      this.restSr.AuthLogin(this.userData).then((respose:any)=>{
+      this.restSr.AuthLogin(this.userData).then(async (respose:any)=>{
         console.log(respose)
-        this.restSr.toast("Login successfull!");
-        this.restSr.getuser()
-        this.restSr.hideLoader();
-        this.navCtrl.navigateRoot("home");
+       
+        await this.restSr.getuser().then((user:any)=>{
+          console.log(user)
+          this.restSr.toast("Login successfull!");
+          this.restSr.hideLoader();
+          if(user.type === 1){
+            this.navCtrl.navigateRoot("dashboard");
+          }else{
+            this.navCtrl.navigateRoot("home");
+          }
+        })
+        
+        // 
       }).catch(error=>{
         this.restSr.toast(error.message)
       })
@@ -29,5 +38,8 @@ export class LoginPage implements OnInit {
       this.restSr.toast("Please fill all details!")
     }
  
+  }
+  registerNow(){
+    this.navCtrl.navigateForward("/register")
   }
 }

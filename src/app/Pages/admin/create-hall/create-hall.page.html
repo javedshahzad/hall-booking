@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+   </ion-buttons>
+     <ion-title align="center">
+       Admin
+     </ion-title>
+  </ion-toolbar>
+ </ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <h2>Please fill all details</h2>
+    <ion-item>
+      <ion-input label="Hall Name" labelPlacement="floating" placeholder="Enter name" type="text" [(ngModel)]="hallData.hallName"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Hall Number" labelPlacement="floating" placeholder="Enter Number" type="number" [(ngModel)]="hallData.hallNumber"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-select label="Status" placeholder="Select type" [(ngModel)]="hallData.hallStatus">
+        <ion-select-option *ngFor="let type of restSr.HallStatus" [value]="type.type">{{type.type}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Hall Capacity/Area" labelPlacement="floating" placeholder="Enter capacity" type="number" [(ngModel)]="hallData.hallCapacity"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Number of sitting/both" labelPlacement="floating" placeholder="Sitting number" type="number" [(ngModel)]="hallData.hallSittingBoth"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Available from (Date)" labelPlacement="floating" placeholder="From date" type="date" [(ngModel)]="hallData.hallAvailableFrom"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Available to (Date)" labelPlacement="floating" placeholder="To date" type="date" [(ngModel)]="hallData.hallAvailableTo"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Business development" labelPlacement="floating" placeholder="Development team" type="text" [(ngModel)]="hallData.hallDevelopmentTeam"></ion-input>
+    </ion-item>
+    <ion-button expand="block" color="secondary" *ngIf="!IsEdit" (click)="CreateHall()"> Create Hall</ion-button>
+    <ion-button expand="block" color="secondary" *ngIf="IsEdit" (click)="UpdateHall()"> Update Hall</ion-button>
+  </ion-list>
+</ion-content>

@@ -29,4 +29,7 @@ export class RegisterPage implements OnInit {
     }
  
   }
+  login(){
+    this.navCtrl.navigateForward("/login")
+  }
 }

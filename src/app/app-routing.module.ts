@@ -34,6 +34,14 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./Pages/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./Pages/admin/dashboard/dashboard.module').then( m => m.DashboardPageModule)
+  },
+  {
+    path: 'create-hall',
+    loadChildren: () => import('./Pages/admin/create-hall/create-hall.module').then( m => m.CreateHallPageModule)
   }
 ];
 

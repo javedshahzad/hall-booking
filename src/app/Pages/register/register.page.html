@@ -23,5 +23,9 @@
       <ion-input label="Password" labelPlacement="floating" placeholder="Password" type="password" [(ngModel)]="userData.password"></ion-input>
     </ion-item>
     <ion-button expand="block" color="secondary" (click)="register()"> Registrer</ion-button>
+    <div class="ion-text-center">
+      <h3 >Already have an account?</h3>
+      <ion-button (click)="login()">Login</ion-button>
+    </div>
   </ion-list>
 </ion-content>
