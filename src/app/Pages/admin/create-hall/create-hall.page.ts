@@ -30,6 +30,8 @@ export class CreateHallPage implements OnInit {
   CreateHall(){
     this.restSr.showLoader();
     if(this.hallData.hallName && this.hallData.hallNumber){
+      let today = new Date();
+      this.hallData.createdAt = today;
       this.angularFireStore.collection("hall").add(this.hallData).then((respone:any)=>{
         this.angularFireStore.collection('hall').doc(respone.id).update({
           'hallId': respone.id
@@ -42,8 +44,9 @@ export class CreateHallPage implements OnInit {
   
   }
   UpdateHall(){
-    this.restSr.showLoader();
+   
     if(this.hallData.hallName && this.hallData.hallNumber){
+      this.restSr.showLoader();
         this.angularFireStore.collection('hall').doc(this.hallData.hallId).update(this.hallData);
       this.restSr.hideLoader();
       this.restSr.toast("Hall has been updated successfully!");

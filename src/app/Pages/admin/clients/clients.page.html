@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+   </ion-buttons>
+    <ion-title align="center">Chat with Clients</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-buttons>
+    <ion-back-button defaultHref="/dashboard"></ion-back-button>
+ </ion-buttons>
+  
+  <ion-list>
+    <ion-item *ngFor="let item of Clients">
+      <ion-avatar aria-hidden="true" slot="start">
+        <img alt="" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+      </ion-avatar>
+      <ion-label>{{item.name}}</ion-label>
+      <ion-button (click)="GotoChat(item)">Chat</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

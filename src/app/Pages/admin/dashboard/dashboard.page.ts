@@ -20,9 +20,11 @@ export class DashboardPage implements OnInit {
     this.navCtrl.navigateForward("/create-hall")
   }
   getAllHalls(){
+    this.restSr.showLoader()
     this.angularFireStore.collection("hall").valueChanges().subscribe((response:any)=>{
       this.AllHallList = response;
       console.log(this.AllHallList)
+      this.restSr.hideLoader()
     })
   }
   DeleteHall(hall){
@@ -32,5 +34,11 @@ export class DashboardPage implements OnInit {
   EditHall(hall){
     console.log(hall)
     this.navCtrl.navigateForward("/create-hall",{queryParams:{isEdit:true,hallData:hall}})
+  }
+  MyReservations(){
+    this.navCtrl.navigateForward("/reservation-requests")
+  }
+  chatWithClents(){
+    this.navCtrl.navigateForward("/clients")
   }
 }

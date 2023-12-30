@@ -1,0 +1,66 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+   </ion-buttons>
+     <ion-title align="center">
+       Hall Details
+     </ion-title>
+  </ion-toolbar>
+ </ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-buttons>
+    <ion-back-button defaultHref="/home"></ion-back-button>
+ </ion-buttons>
+  <ng-container *ngIf="!IsReservation">
+    <ion-grid>
+      <ion-row class="rowborder p-8" *ngIf="hallDetails">
+        <ion-col>
+          <p class="heading-style" text-center>Hall Name</p>
+          <p class="heading-style" text-center>Hall Capacity</p>
+          <p class="heading-style" text-center>Hall Number</p>
+          <p class="heading-style" text-center>Hall Sitting/Boths</p>
+          <p class="heading-style" text-center>Hall Development Team Contact</p>
+          <p class="heading-style" text-center>Hall Availability</p>
+          <p class="heading-style" text-center>Hall Status</p>
+        </ion-col>
+        <ion-col size="6">
+         <p class="title-style">{{hallDetails.hallName}}</p>
+         <p class="title-style">{{hallDetails.hallCapacity}}</p>
+         <p class="title-style">{{hallDetails.hallNumber}}</p>
+         <p class="title-style">{{hallDetails.hallSittingBoth}}</p>
+         <p class="title-style">{{hallDetails.hallDevelopmentTeam}}</p>
+         <p class="title-style">{{hallDetails.hallAvailableFrom}} To {{hallDetails.hallAvailableTo}}</p>
+         <p class="title-style">{{hallDetails.hallStatus}}</p>
+        </ion-col>
+        <ion-col size="12">
+          <div text-center class="flex">
+            <ion-button  expand="block" color="primary"  class="btn-style text-capitalize" (click)="reserveNow(hallDetails)">Reserve Now</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ng-container>
+  <ng-container *ngIf="IsReservation">
+    <ion-grid>
+         <ion-row>
+      <ion-col> <p class="heading-style" text-center>Reserve your hall now</p></ion-col>
+    </ion-row>
+    </ion-grid>
+    <ion-grid>
+      <ion-row>
+   <ion-col> 
+    <ion-item>
+      <ion-input label="Reseve from (Date)" labelPlacement="floating" placeholder="From date" type="date" [(ngModel)]="hallReserveFrom"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Reserve to (Date)" labelPlacement="floating" placeholder="To date" type="date" [(ngModel)]="hallReserveTo"></ion-input>
+    </ion-item>
+    <ion-button  expand="block" color="primary"  class=" text-capitalize" (click)="requestNow(hallDetails)">Request Reserve Now</ion-button>
+  </ion-col>
+ </ion-row>
+ </ion-grid>
+
+  </ng-container>
+</ion-content>

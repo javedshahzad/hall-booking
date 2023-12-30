@@ -1,47 +1,86 @@
 
 <ion-app>
   <ion-menu side="start" menuId="main-menu"  contentId="main">
-    <ion-header>
-      <ion-toolbar>
-        <ion-title>Menu</ion-title>
-      </ion-toolbar>
+    <ion-header class="bar-profile ion-no-border">
+      <div class="profile">
+          <h3 class="name">Hall Management</h3>
+          <img class="profile-picture" src="assets/pic1.png"/>
+          <h5 class="name" style='color:#e4e4e4'>{{user.name}}</h5>
+      </div>
     </ion-header>
 <ion-content>
   <ion-list>
-    <ion-item>
-      <ion-title>About</ion-title>
-    </ion-item>
-    <ion-item >
-      <ion-label>Our Story </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>Executive Team </ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-label>Business Development Team</ion-label>
-    </ion-item>
-
-    <ion-item>
-      <ion-title>The Venue</ion-title>
-    </ion-item>
-    <ion-item routerLink="/venue-spaces">
-           <ion-label >Venue Spaces</ion-label>
-    </ion-item>
-    <ion-item routerLink="/precinct-map">
-      <ion-label >Precinct Map</ion-label>
-    </ion-item>
-    <ion-item routerLink="/plan-an-event">
-      <ion-label > Plan An Event </ion-label>
-    </ion-item>
-    <ion-item routerLink="/upcoming-events">
-      <ion-label > Upcoming Event </ion-label>
-    </ion-item>
-    <ion-item (click)="restSr.logOut()">
-      <ion-label > Logout </ion-label>
-    </ion-item>
-    
+    <ion-menu-toggle auto-hide="true" >
+      <ion-item routerLink="/venue-spaces">
+        <ion-label>Venue Spaces</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+    <ion-menu-toggle auto-hide="true" >
+      <ion-item routerLink="/precinct-map">
+        <ion-label>Precinct Map</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+    <ion-menu-toggle auto-hide="true" >
+      <ion-item routerLink="/plan-an-event">
+        <ion-label>Plan An Event</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+    <ion-menu-toggle auto-hide="true" >
+      <ion-item routerLink="/upcoming-events">
+        <ion-label>Upcoming Event</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+    <ion-menu-toggle auto-hide="true" >
+      <ion-item (click)="restSr.logOut()">
+        <ion-label>Log out</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
   </ion-list>
 </ion-content>
   </ion-menu>
   <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>
+<!-- 
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay" menuId="main-menu">
+      <ion-header class="bar-profile ion-no-border">
+        <div class="profile">
+            <h3 class="name">Hall Management</h3>
+            <img class="profile-picture" src="assets/pic1.png"/>
+            <h5 class="name" style='color:#e4e4e4'>{{user.name}}</h5>
+        </div>
+      </ion-header>
+      <ion-content>
+        <ion-list id="labels-list">
+          <ion-menu-toggle auto-hide="true" >
+            <ion-item routerLink="/venue-spaces">
+              <ion-label>Venue Spaces</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="true" >
+            <ion-item routerLink="/precinct-map">
+              <ion-label>Precinct Map</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="true" >
+            <ion-item routerLink="/plan-an-event">
+              <ion-label>Plan An Event</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="true" >
+            <ion-item routerLink="/upcoming-events">
+              <ion-label>Upcoming Event</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle auto-hide="true" >
+            <ion-item (click)="restSr.logOut()">
+              <ion-label>Log out</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app> -->

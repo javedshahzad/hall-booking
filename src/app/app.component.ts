@@ -9,7 +9,7 @@ import { RestApiService } from './services/rest-api.service';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  user: any ;
+  user: any ={};
   constructor(
     private afAuth:AngularFireAuth,
     private navCtrl:NavController,
@@ -31,6 +31,9 @@ export class AppComponent {
     }else{
       this.navCtrl.navigateRoot("/login");
     }
+    let today = new Date()
+
+console.log(today)
   
   }
 }

@@ -9,10 +9,10 @@ import { LoadingController, NavController, ToastController } from '@ionic/angula
 export class RestApiService {
   text: string;
   public UserTypes= [
-    {
-      type:"Admin",
-      typeId:1,
-    },
+    // {
+    //   type:"Admin",
+    //   typeId:1,
+    // },
     {
       type:"Client",
       typeId:2,
@@ -51,6 +51,9 @@ export class RestApiService {
   public AuthSignup(data:any) {
     return new Promise((resolve, reject) =>{
       this.afAuth.createUserWithEmailAndPassword(data.email, data.password).then(async (response:any)=>{
+        data.userId = response.user.uid;
+        let today = new Date();
+        data.createdAt= today
         await this.angularFireStore.collection('users').doc(response.user.uid).set(data);
         resolve(response);
       }).catch(error=>{
@@ -122,7 +125,7 @@ showLoader() {
     this.loadingCtrl.create({
         message: 'Pleas wait...',
         spinner: "lines-sharp",
-        duration: 10000,
+        duration: 8000,
         mode: "ios",
         animated:true,
     }).then((res) => {

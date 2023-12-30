@@ -42,6 +42,30 @@ const routes: Routes = [
   {
     path: 'create-hall',
     loadChildren: () => import('./Pages/admin/create-hall/create-hall.module').then( m => m.CreateHallPageModule)
+  },
+  {
+    path: 'view-hall',
+    loadChildren: () => import('./Pages/view-hall/view-hall.module').then( m => m.ViewHallPageModule)
+  },
+  {
+    path: 'my-reservations',
+    loadChildren: () => import('./Pages/my-reservations/my-reservations.module').then( m => m.MyReservationsPageModule)
+  },
+  {
+    path: 'reservation-requests',
+    loadChildren: () => import('./Pages/admin/reservation-requests/reservation-requests.module').then( m => m.ReservationRequestsPageModule)
+  },
+  {
+    path: 'chat',
+    loadChildren: () => import('./Pages/chat/chat.module').then( m => m.ChatPageModule)
+  },
+  {
+    path: 'chats-clients',
+    loadChildren: () => import('./Pages/admin/chats-clients/chats-clients.module').then( m => m.ChatsClientsPageModule)
+  },
+  {
+    path: 'clients',
+    loadChildren: () => import('./Pages/admin/clients/clients.module').then( m => m.ClientsPageModule)
   }
 ];
 

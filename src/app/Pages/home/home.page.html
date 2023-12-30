@@ -27,7 +27,20 @@
   </p>
   <p>Exhibition World Bahrain is proudly managed by ASM Global, the world's leading venue and event strategy management company, connecting people through the power of live experience.</p>
  </div>
- 
+ <ion-grid>
+  <ion-row>
+    <ion-col>
+        <ion-button expand="full" (click)="chatWithadmin()">
+          Chat with Admin
+        </ion-button>
+    </ion-col>
+    <ion-col>
+        <ion-button expand="full" (click)="MyReservations()">
+          My Reservation History
+        </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid> 
 <ion-grid>
   <ion-row>
     <ion-col>
@@ -36,6 +49,9 @@
   </ion-row>
 </ion-grid>
  <ion-grid>
+  <ion-row>
+    <ion-col> <p class="heading-style" text-center>All Available Halls/p></ion-col>
+  </ion-row>
    <ion-row>
      <!-- <ion-col>
        <ion-card>

@@ -29,3 +29,6 @@ ion-toolbar{
     color: #fff;
     --background: linear-gradient(to right, #6b78d1, #5d6ec0, #5064af, #435b9f, #37518e, #425491, #4c5895, #555b98, #766caf, #997ec5, #bc8fda, #e1a1ee) !important;
 }
+ion-button{
+    text-transform: capitalize;
+}
