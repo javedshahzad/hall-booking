@@ -47,8 +47,11 @@
   </ion-row>
 </ion-grid>
  <ion-grid>
-  <ion-row>
+  <ion-row *ngIf="AllHallList.length > 0">
     <ion-col> <p class="heading-style ion-text-center">All Available Halls</p></ion-col>
+  </ion-row>
+   <ion-row *ngIf="AllHallList.length === 0">
+    <ion-col> <p class="heading-style ion-text-center">No Hall added by admin Yet!</p></ion-col>
   </ion-row>
    <ion-row>
      <!-- <ion-col>

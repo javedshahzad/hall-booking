@@ -7,9 +7,18 @@
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
+  <br>
   <div class="title" align="Center">
    Upcoming Events!
     </div>
+    <ion-grid>
+      <ion-row *ngIf="AllEvents.length > 0">
+        <ion-col> <p class="heading-style ion-text-center">All Available Events</p></ion-col>
+      </ion-row>
+       <ion-row *ngIf="AllEvents.length === 0">
+        <ion-col> <p class="heading-style ion-text-center">No event Yet!</p></ion-col>
+      </ion-row>
+    </ion-grid>
     <ion-card *ngFor="let item of AllEvents">
       <ion-card-header>
        <img src="../../assets/autumnfair.png">

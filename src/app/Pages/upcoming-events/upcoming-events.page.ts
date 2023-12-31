@@ -10,11 +10,7 @@ import { RestApiService } from 'src/app/services/rest-api.service';
   styleUrls: ['./upcoming-events.page.scss'],
 })
 export class UpcomingEventsPage implements OnInit {
-  AllEvents: any;
-  
-    
-
-
+  AllEvents: any=[];
   constructor(public angularFireStore: AngularFirestore, public Activerouter: ActivatedRoute,
     private navCtrl:NavController,
     private restSr:RestApiService
