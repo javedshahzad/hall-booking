@@ -1,13 +1,17 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Exhibition World Bahrain</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+    <ion-title align="center">Exhibition World Bahrain</ion-title>
   </ion-toolbar>
-  <ion-buttons>
-    <ion-menu-button menu="main-menu"></ion-menu-button>
-  </ion-buttons>
+
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-buttons>
+    <ion-back-button defaultHref="/home"></ion-back-button>
+ </ion-buttons>
   <div class="title" align="center">Plan an Event</div>
  
   <ion-row>
@@ -16,8 +20,32 @@
     </ion-col>
   </ion-row>
   <div align="center">
-    <p>Planning to organize an event  </p>
+    <h2>Planning to organize an event  </h2>
   </div>
-  <div align="center">Register Below</div>
-  <ion-button expand="block" routerLink="/register-exhibitor"> Register</ion-button>
+  <div align="center">Create Below</div>
+  <ion-list>
+    <ion-item>
+      <ion-input label="Event Agenda" labelPlacement="floating" placeholder="Enter Agenda" type="text" [(ngModel)]="eventData.eventAgenda"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input label="Speakers" labelPlacement="floating" placeholder="Type your speakers" type="text" [(ngModel)]="eventData.eventSpeakers"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-select label="Attendees Registeration" placeholder="Attendees Registeration" [(ngModel)]="eventData.eventRegisterationForAttendes">
+        <ion-select-option  value="yes">Yes</ion-select-option>
+        <ion-select-option  value="no">No</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Attendees" labelPlacement="floating" placeholder="Attendees" type="text" [(ngModel)]="eventData.eventAttendees"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Updates" labelPlacement="floating" placeholder="Updates" type="text" [(ngModel)]="eventData.eventUpdates"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Event date" labelPlacement="floating" placeholder="Event date" type="date" [(ngModel)]="eventData.eventDate"></ion-input>
+    </ion-item>
+    <ion-button expand="block" color="secondary" (click)="CreateNow()">Create event now</ion-button>
+  </ion-list>
 </ion-content>

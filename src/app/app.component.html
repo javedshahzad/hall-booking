@@ -5,36 +5,107 @@
       <div class="profile">
           <h3 class="name">Hall Management</h3>
           <img class="profile-picture" src="assets/pic1.png"/>
-          <h5 class="name" style='color:#e4e4e4'>{{user.name}}</h5>
+          <h5 class="name" style='color:#e4e4e4' *ngIf="user.name">{{user.name}}</h5>
       </div>
     </ion-header>
 <ion-content>
   <ion-list>
-    <ion-menu-toggle auto-hide="true" >
-      <ion-item routerLink="/venue-spaces">
-        <ion-label>Venue Spaces</ion-label>
-      </ion-item>
-    </ion-menu-toggle>
-    <ion-menu-toggle auto-hide="true" >
-      <ion-item routerLink="/precinct-map">
-        <ion-label>Precinct Map</ion-label>
-      </ion-item>
-    </ion-menu-toggle>
-    <ion-menu-toggle auto-hide="true" >
-      <ion-item routerLink="/plan-an-event">
-        <ion-label>Plan An Event</ion-label>
-      </ion-item>
-    </ion-menu-toggle>
-    <ion-menu-toggle auto-hide="true" >
-      <ion-item routerLink="/upcoming-events">
-        <ion-label>Upcoming Event</ion-label>
-      </ion-item>
-    </ion-menu-toggle>
-    <ion-menu-toggle auto-hide="true" >
-      <ion-item (click)="restSr.logOut()">
-        <ion-label>Log out</ion-label>
-      </ion-item>
-    </ion-menu-toggle>
+    <ng-container *ngIf="user.type === 1">
+      <ion-menu-toggle auto-hide="true" >
+        <ion-item routerLink="/dashboard">
+          <ion-label>Dashboard</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle auto-hide="true" >
+        <ion-item routerLink="/reservation-requests">
+          <ion-label>Reservation Request</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle auto-hide="true" >
+        <ion-item routerLink="/clients">
+          <ion-label>Contact with Clients</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle auto-hide="true" >
+        <ion-item routerLink="/create-hall">
+          <ion-label>Create a new Hall</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle auto-hide="true" *ngIf="user">
+        <ion-item (click)="restSr.logOut()">
+          <ion-label>Log out</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ng-container>
+
+    <ng-container *ngIf="user.type === 2">
+      <ion-menu-toggle auto-hide="true" >
+        <ion-item routerLink="/home">
+          <ion-label>Home</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle auto-hide="true" >
+        <ion-item routerLink="/my-reservations">
+          <ion-label>My reservations</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle auto-hide="true" >
+        <ion-item routerLink="/chat">
+          <ion-label>Contact with Admin</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle auto-hide="true" >
+        <ion-item routerLink="/venue-spaces">
+          <ion-label>Venue Spaces</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle auto-hide="true" >
+        <ion-item routerLink="/precinct-map">
+          <ion-label>Precinct Map</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle auto-hide="true" >
+        <ion-item routerLink="/plan-an-event">
+          <ion-label>Create An Event</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle auto-hide="true" >
+        <ion-item routerLink="/upcoming-events">
+          <ion-label>Upcoming Event</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle auto-hide="true" *ngIf="user">
+        <ion-item (click)="restSr.logOut()">
+          <ion-label>Log out</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ng-container>
+
+    <ng-container *ngIf="user.type === 3">
+      <ion-menu-toggle auto-hide="true" >
+        <ion-item routerLink="/upcoming-events">
+          <ion-label>Upcoming Event</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle auto-hide="true" *ngIf="user">
+        <ion-item (click)="restSr.logOut()">
+          <ion-label>Log out</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ng-container>
+    <ng-container *ngIf="!user || !user.name">
+      <ion-menu-toggle auto-hide="true" >
+        <ion-item routerLink="/upcoming-events">
+          <ion-label>Upcoming Event</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle auto-hide="true">
+        <ion-item routerLink="/login">
+          <ion-label>Log In</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ng-container>
+   
   </ion-list>
 </ion-content>
   </ion-menu>

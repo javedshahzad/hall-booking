@@ -21,15 +21,15 @@ export class AppComponent {
     if(user != ""){
       this.user = JSON.parse(user) ? JSON.parse(user) : "";
       console.log(this.user)
-      if(this.user && this.user.type == 1){
+      if(this.user && this.user.type === 1){
         this.navCtrl.navigateRoot("/dashboard");
-      }else if(this.user && this.user.type !== 1){
+      }else if(this.user && this.user.type === 2){
         this.navCtrl.navigateRoot("/home");
-      }else{
-        this.navCtrl.navigateRoot("/login");
+      }else if(this.user && this.user.type === 3){
+        this.navCtrl.navigateRoot("/upcoming-events");
       }
     }else{
-      this.navCtrl.navigateRoot("/login");
+      this.navCtrl.navigateRoot("/upcoming-events");
     }
     let today = new Date()
 

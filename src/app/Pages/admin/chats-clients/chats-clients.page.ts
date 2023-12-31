@@ -36,6 +36,7 @@ getMessages(){
   this.chatService.getChatMessages(this.client).subscribe((resposne:any)=>{
     console.log(resposne)
     this.messages = resposne;
+    this.content.scrollToBottom();
   });
 }
   sendMessage() {

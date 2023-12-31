@@ -144,6 +144,6 @@ hideLoader() {
   logOut(){
     localStorage.clear();
     this.afAuth.signOut();
-    this.navCtrl.navigateRoot("login")
+    window.location.reload();
   }
 }

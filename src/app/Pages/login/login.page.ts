@@ -23,11 +23,15 @@ export class LoginPage implements OnInit {
           console.log(user)
           this.restSr.toast("Login successfull!");
           this.restSr.hideLoader();
-          if(user.type === 1){
-            this.navCtrl.navigateRoot("dashboard");
-          }else{
-            this.navCtrl.navigateRoot("home");
+          window.location.reload();
+          if(user && user.type === 1){
+            this.navCtrl.navigateRoot("/dashboard");
+          }else if(user && user.type === 2){
+            this.navCtrl.navigateRoot("/home");
+          }else if(user && user.type === 3){
+            this.navCtrl.navigateRoot("/upcoming-events");
           }
+         
         })
         
         // 

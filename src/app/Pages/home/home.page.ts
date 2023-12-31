@@ -35,7 +35,7 @@ export class HomePage {
     console.log(str)
     if (str) {
         let arrdata = this.HallSearchArray;
-        let x = arrdata.filter((a) => a.hallName.toUpperCase().includes(str.toUpperCase()));
+        let x = arrdata.filter((a) => a.hallName.toUpperCase().includes(str.toUpperCase()) || a.hallCapacity.toString().includes(str.toString()));
         this.AllHallList = x;
     } else {
         this.AllHallList = this.HallSearchArray;

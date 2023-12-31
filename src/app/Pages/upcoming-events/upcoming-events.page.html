@@ -1,34 +1,28 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+   </ion-buttons> 
     <ion-title align="center">Exhibition World Bahrain</ion-title>
   </ion-toolbar>
-  <ion-buttons>
-    <ion-menu-button menu="main-menu"></ion-menu-button>
- </ion-buttons>
 </ion-header>
-
 <ion-content [fullscreen]="true">
   <div class="title" align="Center">
    Upcoming Events!
     </div>
-    <ion-card>
+    <ion-card *ngFor="let item of AllEvents">
       <ion-card-header>
        <img src="../../assets/autumnfair.png">
       </ion-card-header>
-  
       <ion-card-content>
-        <p class="sentence-spacing">Get free access for all 9 days.</p>
-          <p class="sentence-spacing" >Find a wide variety of local and international products at affordable prices, from fashion to furniture, kitchenware, textiles and leather goods.</p>
-          <p class="sentence-spacing" >Explore new country pavilions like Thailand, Morocco and China.</p>
-          <p class="sentence-spacing" > Discover the best deals and discounts in Bahrain - only at The Autumn Fair!</p>
-          <p class="sentence-spacing">Shop exquisite gold and pearl pieces from the Jewellery PavilionGet free access for all 9 days.</p>
-          <p class="sentence-spacing">Find a wide variety of local and international products at affordable prices, from fashion to furniture, kitchenware, textiles and leather goods.</p>
-          <p class="sentence-spacing">Explore new country pavilions like Thailand, Morocco and China.</p>
-          <p class="sentence-spacing" >Discover the best deals and discounts in Bahrain - only at The Autumn Fair!</p>
-          <p class="sentence-spacing" >Shop exquisite gold and pearl pieces from the Jewellery Pavilion.</p>
+          <p class="sentence-spacing">Event organizer: {{item.user.name}}</p>
+          <p class="sentence-spacing">Event Agenda: {{item.eventAgenda}}</p>
+          <p class="sentence-spacing" >Event Attendees: {{item.eventAttendees}}</p>
+          <p class="sentence-spacing" >Speakers: {{item.eventSpeakers}}</p>
+          <p class="sentence-spacing" >Updated: {{item.eventUpdates}}</p>
+          <p class="sentence-spacing">Date: {{item.eventDate}}</p>
       </ion-card-content>
-      <ion-button routerLink="/registration-guest" >Register Now</ion-button>
-     
+      <ion-button (click)="registerationForAttendees(item)" >Register as Guest Now</ion-button>
    </ion-card>
   
     

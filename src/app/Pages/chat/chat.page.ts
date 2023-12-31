@@ -12,14 +12,15 @@ import { ChatService } from 'src/app/services/chat.service';
 export class ChatPage implements OnInit {
   @ViewChild(IonContent) content: IonContent;
 
-  messages: Observable<any[]>;
+  messages: any=[];
   newMsg = '';
   constructor(private chatService: ChatService, private router: Router) { }
 
   ngOnInit() {
-    this.messages = this.chatService.getChatMessages();
     this.chatService.getChatMessages().subscribe((resposne:any)=>{
+      this.content.scrollToBottom();
       console.log(resposne)
+      this.messages = resposne;
     });
     
   }

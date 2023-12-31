@@ -26,9 +26,7 @@ export class MyReservationsPage implements OnInit {
       var user = JSON.parse(localStorage.getItem("userData")) ? JSON.parse(localStorage.getItem("userData")) : "";
       console.log(user)
       const reservationsDb = await this.angularFireStore.collection('reservation',res => {
-        return res.limit(10)
-        .orderBy('createdAt','desc')
-        .where('userId', '==', user.userId)
+        return res.orderBy('createdAt','desc').where('userId', '==', user.userId)
       })
       const reserveData = await reservationsDb.valueChanges()
       reserveData.subscribe((response:any) =>{

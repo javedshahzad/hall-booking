@@ -1,23 +1,21 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    
-   <img src="../../assets/logo.png">
-   <ion-title></ion-title>
-
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+      <div class="ion-text-center">
+        <img src="../../assets/logo.png" class="logo-img">
+      </div>
     <ion-icon name="logo-youtube" slot="end" size="large"></ion-icon>
     <ion-icon name="logo-twitter" slot="end" size="large"></ion-icon>
     <ion-icon name="logo-instagram" slot="end" size="large"></ion-icon>
     <ion-icon name="logo-linkedin" slot="end" size="large"></ion-icon>
     <ion-icon name="logo-facebook" slot="end" size="large"></ion-icon>
-
-
-    <ion-buttons>
-      <ion-menu-button menu="main-menu"></ion-menu-button>
-    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <br>
  <div align="center">Welcome to the Exciting World of Exhibition!
   <p><b>The Middle East's newest exhibition & convention centre.</b></p>
   <p> 
@@ -30,7 +28,7 @@
  <ion-grid>
   <ion-row>
     <ion-col>
-        <ion-button expand="full" (click)="chatWithadmin()">
+        <ion-button expand="full" (click)="chatWithadmin()" color="danger">
           Chat with Admin
         </ion-button>
     </ion-col>
@@ -44,13 +42,13 @@
 <ion-grid>
   <ion-row>
     <ion-col>
-      <ion-searchbar show-cancel-button="focus" placeholder="Search hall by Name" (ionInput)="SearchHall($event)"></ion-searchbar>
+      <ion-searchbar show-cancel-button="focus" placeholder="Search hall by Name, Hall Capacity" (ionInput)="SearchHall($event)"></ion-searchbar>
     </ion-col>
   </ion-row>
 </ion-grid>
  <ion-grid>
   <ion-row>
-    <ion-col> <p class="heading-style" text-center>All Available Halls/p></ion-col>
+    <ion-col> <p class="heading-style ion-text-center">All Available Halls</p></ion-col>
   </ion-row>
    <ion-row>
      <!-- <ion-col>
