@@ -43,7 +43,7 @@ export class UpcomingEventsPage implements OnInit {
     if(user.name){
       this.restSr.showLoader()
       const eventRegistDB = await this.angularFireStore.collection('eventRegisteredAttendees',res => {
-        return res.orderBy('createdAt','desc').where("userId","==",user.userId)})
+        return res.orderBy('createdAt','desc').where("userId","==",user.userId).where("eventId","==",eventData.eventId)})
       const eventRegData = await eventRegistDB.valueChanges()
       eventRegData.subscribe((response:any) =>{
        if(response.length > 0){
