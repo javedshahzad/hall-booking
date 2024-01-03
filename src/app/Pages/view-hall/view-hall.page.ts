@@ -30,7 +30,12 @@ export class ViewHallPage implements OnInit {
   ngOnInit() {
   }
   reserveNow(hallDetails){
-    this.IsReservation=true;
+    if(hallDetails.hallStatus === "Available"){
+      this.IsReservation=true;
+    }else{
+      this.restSr.toast("Hall is already booked, Please try different one!");
+    }
+    
   }
   requestNow(hallDetails){
    if(this.hallReserveFrom && this.hallReserveTo){

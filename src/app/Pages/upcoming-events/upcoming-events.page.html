@@ -21,7 +21,7 @@
     </ion-grid>
     <ion-card *ngFor="let item of AllEvents">
       <ion-card-header>
-       <img src="../../assets/autumnfair.png">
+       <img [src]="item.eventImageUrl ? item.eventImageUrl :'assets/autumnfair.png'" class="image-style-hall">
       </ion-card-header>
       <ion-card-content>
           <p class="sentence-spacing">Event organizer: {{item.user.name}}</p>

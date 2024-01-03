@@ -15,6 +15,7 @@ export class HomePage {
   public logged: boolean = false;
   AllHallList: any = [];
   HallSearchArray: any;
+  SpecialHall: any=[];
   constructor(public angularFireStore: AngularFirestore, public router: Router,
     private navCtrl:NavController,
     private restSr:RestApiService
@@ -25,6 +26,8 @@ export class HomePage {
     this.restSr.showLoader()
     this.angularFireStore.collection("hall").valueChanges().subscribe((response:any)=>{
       this.AllHallList = response;
+      this.SpecialHall = this.AllHallList.filter(data=> data.hallCategory === "Special");
+      
       this.HallSearchArray = response;
       console.log(this.AllHallList)
       this.restSr.hideLoader()

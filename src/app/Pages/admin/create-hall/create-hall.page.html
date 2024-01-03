@@ -28,6 +28,12 @@
       </ion-select>
     </ion-item>
     <ion-item>
+      <ion-select label="Category" placeholder="Select Category" [(ngModel)]="hallData.hallCategory">
+        <ion-select-option value="Special">Special</ion-select-option>
+        <ion-select-option value="Special">General</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
       <ion-input label="Hall Capacity/Area" labelPlacement="floating" placeholder="Enter capacity" type="number" [(ngModel)]="hallData.hallCapacity"></ion-input>
     </ion-item>
     <ion-item>
@@ -41,6 +47,9 @@
     </ion-item>
     <ion-item>
       <ion-input label="Business development" labelPlacement="floating" placeholder="Development team" type="text" [(ngModel)]="hallData.hallDevelopmentTeam"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Upload an image" labelPlacement="floating" placeholder="Select image" type="file" name="iamge" accept="image/*" class="inputstyle" (change)="OnUploadImage($event)" placeholder="Image" ></ion-input>
     </ion-item>
     <ion-button expand="block" color="secondary" *ngIf="!IsEdit" (click)="CreateHall()"> Create Hall</ion-button>
     <ion-button expand="block" color="secondary" *ngIf="IsEdit" (click)="UpdateHall()"> Update Hall</ion-button>

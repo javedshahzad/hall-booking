@@ -38,13 +38,24 @@
       </ion-select>
     </ion-item>
     <ion-item>
+      <ion-select label="Select A Hall" placeholder="Event hall" [(ngModel)]="eventData.eventHall">
+        <ion-select-option *ngFor="let item of AllHallList" [value]="item.hallId">{{item.hallName}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
       <ion-input label="Attendees" labelPlacement="floating" placeholder="Attendees" type="text" [(ngModel)]="eventData.eventAttendees"></ion-input>
     </ion-item>
     <ion-item>
       <ion-input label="Updates" labelPlacement="floating" placeholder="Updates" type="text" [(ngModel)]="eventData.eventUpdates"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input label="Event date" labelPlacement="floating" placeholder="Event date" type="date" [(ngModel)]="eventData.eventDate"></ion-input>
+      <ion-input label="Event Start date" labelPlacement="floating" placeholder="Event date" type="date" [(ngModel)]="eventData.eventStartDate"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Event End date" labelPlacement="floating" placeholder="Event date" type="date" [(ngModel)]="eventData.eventEndDate"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Upload an image" labelPlacement="floating" placeholder="Select image" type="file" name="iamge" accept="image/*" class="inputstyle" (change)="OnUploadImage($event)" placeholder="Image" ></ion-input>
     </ion-item>
     <ion-button expand="block" color="secondary" (click)="CreateNow()">Create event now</ion-button>
   </ion-list>

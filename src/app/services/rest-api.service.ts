@@ -121,6 +121,22 @@ export class RestApiService {
     toast.present();
     //end of toast
 }
+async toastError(message) {
+  const toast = await this.toastr.create({
+      message: message,
+      color: 'danger',
+      duration: 4000,
+      animated:true,
+      buttons: [
+          {
+            text: 'Ok!',
+            role: 'cancel'
+          }
+        ],
+  });
+  toast.present();
+  //end of toast
+}
 showLoader() {
     this.loadingCtrl.create({
         message: 'Pleas wait...',
@@ -131,6 +147,17 @@ showLoader() {
     }).then((res) => {
         res.present();
     });
+
+}
+showSimpleLoader() {
+  this.loadingCtrl.create({
+      message: 'Pleas wait...',
+      spinner: "lines-sharp",
+      mode: "ios",
+      animated:true,
+  }).then((res) => {
+      res.present();
+  });
 
 }
 hideLoader() {

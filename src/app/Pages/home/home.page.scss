@@ -44,3 +44,36 @@ ion-header {
   border-radius: 30px;
 }
 
+.rowborder{
+  border: 1px solid #4357BF80;
+  box-shadow: 0px 6px 8px 0px #6F9CD673;
+  border-radius: 10px;
+  margin-top: 10px;
+  background: #fff;
+}
+.p-8{
+  padding: 8px;
+}
+.heading-style{
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0.01em;
+  color: #334D6E;
+}
+.title-style{
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0.01em;
+  text-align: left;
+  color: #153522;
+}
+.btn-style{
+  width: 150px;
+}
+.flex{
+  display: flex;
+  justify-content: space-between;
+}
+

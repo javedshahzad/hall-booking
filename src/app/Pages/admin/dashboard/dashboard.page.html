@@ -36,6 +36,9 @@
         <ion-col> <p class="heading-style" text-center>All Available Halls</p></ion-col>
       </ion-row>
       <ion-row class="rowborder p-8" *ngFor="let Halls of AllHallList; index as i;">
+        <ion-col size="12">
+          <img [src]="Halls.hallImage ? Halls.hallImage : 'assets/pic1.png'" class="image-style-hall" alt="">
+        </ion-col>
         <ion-col>
           <p class="heading-style" text-center>Hall Name</p>
           <p class="heading-style" text-center>Hall Capacity</p>

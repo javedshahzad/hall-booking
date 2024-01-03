@@ -16,6 +16,9 @@
   <ng-container *ngIf="!IsReservation">
     <ion-grid>
       <ion-row class="rowborder p-8" *ngIf="hallDetails">
+        <ion-col size="12">
+          <img [src]="hallDetails.hallImage ? hallDetails.hallImage : 'assets/pic1.png'" class="image-style-hall" alt="">
+        </ion-col>
         <ion-col>
           <p class="heading-style" text-center>Hall Name</p>
           <p class="heading-style" text-center>Hall Capacity</p>
